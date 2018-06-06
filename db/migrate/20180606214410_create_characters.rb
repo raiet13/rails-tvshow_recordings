@@ -4,7 +4,7 @@ class CreateCharacters < ActiveRecord::Migration[5.2]
       t.string :name
       t.belongs_to :show, foreign_key: true
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

@@ -5,7 +5,7 @@ class CreateShows < ActiveRecord::Migration[5.2]
       t.integer :req_recording_hours
       t.integer :req_age
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

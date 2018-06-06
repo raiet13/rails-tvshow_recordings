@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.integer :age
       t.integer :recording_hours
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
