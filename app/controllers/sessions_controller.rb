@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       redirect_to user_path(user)
     else
       flash[:notice] = "Log in unsuccessful, either your username or password was not found. Please try again or sign up for an account."
-      redirect_to login_path
+      render :new # NOTE : So that user doesn't have to re-enter info from scratch if they don't want
     end
   end
 
