@@ -13,6 +13,12 @@ class UsersController < ApplicationController
 
   # Sign Up Page
   def new
+    if logged_in?
+      flash[:notice] = "You are already signed in. If this is not your account, please 'Log Out'."
+      redirect_to "/users/#{current_user.id}"
+    else
+      @new_user = User.new
+    end
   end
 
   # User Creation/Data Authentication
