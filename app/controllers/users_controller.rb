@@ -64,6 +64,8 @@ class UsersController < ApplicationController
   # Delete User
   def destroy
     user_check(params[:id])
+    current_user.destroy
+    redirect_to logout_path
   end
 
   private
