@@ -13,3 +13,5 @@
 
 <%= link_to "See All Shows", shows_path %>
 <%= link_to "See Your Recordings", recordings_path %>
+
+<%= link_to "Delete Your Account", 'users/<%=current_user.id%>/destroy' %>

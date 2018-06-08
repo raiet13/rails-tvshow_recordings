@@ -4,12 +4,6 @@ class UsersController < ApplicationController
   # Show All Users
   def index
     @users = User.all
-  # Show All By (methods in user model)
-    # User's name
-    # User's (current) active recordings
-    # ??? -- User's total num recordings to date
-    # User's favorite show
-    # User's favorite genre
   end
 
   # Sign Up Page
@@ -36,23 +30,15 @@ class UsersController < ApplicationController
 
   # User Profile
   def show
-    # User name
-    # User's (current) active recordings
-    # ??? -- User's total num recordings to date
-    # User's favorite show
-    # User's favorite genre
-    # Link to "See All Shows" (will have recorded shows auto-checked + button to "record show?" if not)
-    # Link to "See Your Recordings"
   end
 
-  # Edit User Info?
+  # Edit User Info
   def edit
     user_check(params[:id])
   end
 
   # Update User Info
   def update
-    # NOTE : Same as above -- maybe just do user edit info as delete path on show page and then through the recordings model (allow recording/deactive/etc.)
     user = User.update(user_params(:name, :username, :age))
 		if user.save
       redirect_to user_path(user)
