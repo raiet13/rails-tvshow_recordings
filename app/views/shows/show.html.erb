@@ -6,5 +6,6 @@
 <p>Age requirement to record show: <%= @show.req_age %></p>
 
 <% if current_user.shows.include?(show) %>
+  <%= link_to "Edit Show", edit_show_path(@show) %>
   <%= link_to "Delete Show", 'shows/<%=@show.id%>/destroy' %>
 <% end %>
