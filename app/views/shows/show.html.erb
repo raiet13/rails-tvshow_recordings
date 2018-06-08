@@ -4,10 +4,10 @@
 <p>Description: <%= @show.description %></p>
 <p>Number of hours required to record show: <%= @show.req_recording_hours %></p>
 <p>Age requirement to record show: <%= @show.req_age %></p>
-<p>Show has <%= @show.characters.count %> Characters:</p>
+<p>Show has <%= @show.characters.count %> characters:</p>
 <ul>
   <% @show.characters.each do |character| %>
-    <li><%= character.name %></li>
+    <li><%= character.name %> | <%= link_to "Edit Character", edit_show_character_path(character) %></li>
   <% end %>
 </ul>
 
