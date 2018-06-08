@@ -23,6 +23,14 @@ class UsersController < ApplicationController
 
   # User Creation/Data Authentication
   def create
+    user = User.new(user_params)
+		if user.save
+      session[:user_id] = user.id
+      redirect_to user_path(user)
+		else
+      flash[:notice] = "Something went wrong during sign up, please try again."
+			render :new
+		end
   end
 
   # User Profile
@@ -50,5 +58,10 @@ class UsersController < ApplicationController
   def destroy
   end
 
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :username, :age, :recording_hours)
+  end
 
 end
