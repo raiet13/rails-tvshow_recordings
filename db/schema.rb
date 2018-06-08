@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_06_220249) do
+ActiveRecord::Schema.define(version: 2018_06_08_012332) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2018_06_06_220249) do
     t.integer "show_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "active"
+    t.boolean "active", default: true
     t.index ["show_id"], name: "index_recordings_on_show_id"
     t.index ["user_id"], name: "index_recordings_on_user_id"
   end
@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(version: 2018_06_06_220249) do
     t.string "password_digest"
     t.integer "age"
     t.integer "total_recording_hours"
-    t.integer "current_recording_hours"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "current_recording_hours"
   end
 
 end
