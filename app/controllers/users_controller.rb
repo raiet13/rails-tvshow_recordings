@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
   # User Creation/Data Authentication
   def create
-    user = User.new(user_params)
+    user = User.new(user_params(:name, :username, :password, :age, :recording_hours))
 		if user.save
       session[:user_id] = user.id
       redirect_to user_path(user)
@@ -46,22 +46,39 @@ class UsersController < ApplicationController
 
   # Edit User Info?
   def edit
-    # maybe only show username for modification? -- TBD
+    user_check(params[:id])
   end
 
-  # Update User Info?
+  # Update User Info
   def update
     # NOTE : Same as above -- maybe just do user edit info as delete path on show page and then through the recordings model (allow recording/deactive/etc.)
+    user = User.update(user_params(:name, :username, :age))
+		if user.save
+      redirect_to user_path(user)
+		else
+      flash[:notice] = "Something went wrong during edit, please try again."
+			render :edit
+		end
   end
 
   # Delete User
   def destroy
+    user_check(params[:id])
   end
 
   private
 
-  def user_params
-    params.require(:user).permit(:name, :username, :age, :recording_hours)
+  def user_params(*args)
+    params.require(:user).permit(*args)
+  end
+
+  # NOTE : Since using resources as routes, adding check that the user attempting modification is the current user
+  def user_check(id)
+    check_user = User.find(id)
+    if check_user != current_user
+      flash[:notice] = "You can only modify your own user information."
+      redirect_to user_path(user)
+    end
   end
 
 end
