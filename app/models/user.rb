@@ -1,9 +1,10 @@
 class User < ApplicationRecord
   has_secure_password
-
   validates :name, presence: true
   validates :username, presence: true, uniqueness: true
   validates :password, presence: true
+
+  before_create :set_current_recording_hours_default
 
   has_many :recordings
   has_many :shows, through: :recordings
@@ -25,6 +26,13 @@ class User < ApplicationRecord
 
     # List of all recordings that user has created
     def all_recordings
+    end
+
+
+    private
+
+    def set_current_recording_hours_default
+      self.current_recording_hours = self.total_recording_hours
     end
 
 end

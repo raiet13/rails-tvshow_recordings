@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   # User Creation/Data Authentication
   def create
-    user = User.new(user_params(:name, :username, :password, :age, :recording_hours))
+    user = User.new(user_params(:name, :username, :password, :age, :total_recording_hours))
 		if user.save
       session[:user_id] = user.id
       redirect_to user_path(user)
