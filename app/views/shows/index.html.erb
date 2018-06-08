@@ -1,1 +1,7 @@
 <h3>Show All Shows</h3>
+
+<ul>
+  <% @shows.each do |show| %>
+    <li><%= link_to show.name, show_path(show) %> has an age requirement of <%= show.req_age %> and takes <%= show.req_recording_hours %> recording hours.</li>
+  <% end %>
+</ul>
