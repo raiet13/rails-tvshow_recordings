@@ -1,1 +1,10 @@
 <h3>Show Page</h3>
+
+<p>Name: <%= @show.name %></p>
+<p>Description: <%= @show.description %></p>
+<p>Number of hours required to record show: <%= @show.req_recording_hours %></p>
+<p>Age requirement to record show: <%= @show.req_age %></p>
+
+<% if current_user.shows.include?(show) %>
+  <%= link_to "Delete Show", 'shows/<%=@show.id%>/destroy' %>
+<% end %>

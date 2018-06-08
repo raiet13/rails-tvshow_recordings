@@ -61,7 +61,7 @@ class ShowsController < ApplicationController
   private
 
   def show_params
-    params.require(:show).permit(:name, :req_recording_hours, :req_age)
+    params.require(:show).permit(:name, :description, :req_recording_hours, :req_age)
   end
 
   # NOTE : Adding check that user "is allowed" to modify the show <<-- current implementation allows for inclusion of past recordings
