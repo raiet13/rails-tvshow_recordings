@@ -42,7 +42,13 @@ class ShowsController < ApplicationController
 
   def update
     show = Show.find(params[:id])
-    redirect_to show_path(show)
+    show.update(show_params)
+    if show.save
+      redirect_to show_path(show)
+    else
+      flash[:notice] = "Something went wrong when you edited the show, please try again."
+      render :edit
+    end
   end
 
   # Delete Show if User has recorded it
