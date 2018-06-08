@@ -3,6 +3,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :username, presence: true, uniqueness: true
   validates :password, presence: true
+  validates :total_recording_hours, numericality: { less_than_or_equal_to: 200 }
 
   before_create :set_current_recording_hours_default
 
