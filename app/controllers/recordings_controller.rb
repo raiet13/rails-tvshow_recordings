@@ -1,6 +1,11 @@
 class RecordingsController < ApplicationController
   before_action :redirect_if_not_logged_in
 
+  # Show all recordings belonging to user (not show)
+  def index
+  end
+
+
   # Be able to create/set a recording
   def create
     puts "Recording Params = #{params}"

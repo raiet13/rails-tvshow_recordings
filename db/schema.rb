@@ -43,7 +43,8 @@ ActiveRecord::Schema.define(version: 2018_06_06_220249) do
     t.string "username"
     t.string "password_digest"
     t.integer "age"
-    t.integer "recording_hours"
+    t.integer "total_recording_hours"
+    t.integer "current_recording_hours"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

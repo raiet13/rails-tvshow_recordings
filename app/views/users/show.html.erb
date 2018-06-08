@@ -1,1 +1,15 @@
 <h3>User Profile</h3>
+
+<h4>User Information</h4>
+<p>Name: <%= current_user.name %></p>
+<p>Username: <%= current_user.username %></p>
+<p>Age: <%= current_user.age %></p>
+<p>Recording Hours Left: <%= current_user.current_recording_hours %> of <%= current_user.total_recording_hours %></p>
+
+<h4>User's Stats</h4>
+<p>Favorite Genre: <%= current_user.fav_genre %></p>
+<p>Number of Active Recordings: <%= current_user.active_recordings %></p>
+<p>Total Recordings Made: <%= current_user.all_recordings %></p>
+
+<%= link_to "See All Shows", shows_path %>
+<%= link_to "See Your Recordings", recordings_path %>

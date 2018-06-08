@@ -14,5 +14,17 @@ class User < ApplicationRecord
     # t.integer :age
     # t.integer :recording_hours
 
+    # User's favorite genre as denoted by the number of shows recorded
+    def fav_genre
+
+    end
+
+    # User's current number of active recordings
+    def active_recordings
+    end
+
+    # List of all recordings that user has created
+    def all_recordings
+    end
 
 end
