@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   # Show All Users
   def index
+    @users = User.all
   # Show All By (methods in user model)
     # User's name
     # User's (current) active recordings
