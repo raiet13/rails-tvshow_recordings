@@ -7,7 +7,7 @@
 <p>Show has <%= @show.characters.count %> characters:</p>
 <ul>
   <% @show.characters.each do |character| %>
-    <li><%= character.name %> | <%= link_to "Edit Character", edit_show_character_path(character) %></li>
+    <li><%= character.name %> | <%= link_to "Edit", edit_show_character_path(character) %> | <%= link_to "Delete", "/shows/<%=@show.id%>/characters/<%=character.id%>" %></li>
   <% end %>
 </ul>
 
