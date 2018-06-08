@@ -14,6 +14,7 @@ class User < ApplicationRecord
   def fav_genre
     # NOTE : DID NOT ADD GENRES YET
     # r.shows.genres
+    "WIP - no genres yet"
   end
 
   # User's current number of active recordings
