@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def new
     if logged_in?
       flash[:notice] = "You are already signed in. If this is not your account, please 'Log Out'."
-      redirect_to "/users/#{current_user.id}"
+      redirect_to user_path(current_user)
     else
       @new_user = User.new
     end
