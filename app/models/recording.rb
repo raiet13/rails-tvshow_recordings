@@ -9,9 +9,6 @@ class Recording < ApplicationRecord
   # NOTE : Added name for user submittable attribute
 
 
-
-  ## Methods for allowing recording or not ##
-
   # Main method for allowing recording to be saved and making user updates
   def allow_recording
   end
@@ -20,16 +17,42 @@ class Recording < ApplicationRecord
   def check_recording
   end
 
+  ## Methods for allowing recording or not ##
+  # private
+
+  def set_variables
+    @rec_show = self.show
+    @recorder = self.user
+    # puts "recorder = #{@recorder} || rec_show = #{@rec_show}"
+  end
+
   # Check user has enough hours to record show
   def check_hours
+    set_variables
+    puts "recorder has : #{@recorder.current_recording_hours} || show cost : #{@rec_show.req_recording_hours}"
+    if @recorder.current_recording_hours >= @rec_show.req_recording_hours
+      puts "Recorder has enough hours to record show"
+      return true
+    end
+    puts "Recorder needs more hours to record show"
+    false
   end
 
   # Check user is old enough to record show
   def check_age
+    set_variables
+    puts "recorder is : #{@recorder.age} || min age : #{@rec_show.req_age}"
+    if @recorder.age >= @rec_show.req_age
+      puts "Recorder is old enough to record show"
+      return true
+    end
+    puts "Recorder needs to be older to record show"
+    false
   end
 
   # Method for updating user current hours
   def update_user_hours
+    set_variables
   end
 
 end
