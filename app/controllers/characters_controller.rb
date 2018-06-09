@@ -31,7 +31,7 @@ class CharactersController < ApplicationController
   private
 
   def char_params
-    params.require(:character).permit(:name, :show)
+    params.require(:character).permit(:name, :role, :description, show: [:id]) # OR :show_id
   end
 
 
