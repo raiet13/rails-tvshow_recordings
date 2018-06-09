@@ -17,20 +17,15 @@ class RecordingsController < ApplicationController
     puts "Recording Params = #{params}"
     recording = Recording.new(recordings_params(:name, :user_id, :show_id))
 
-
-    
-    if recording.save
+    if recording.check_recording == ""
+      recording.save
+      recording.allow_recording
       redirect_to users_active_recordings(current_user)
+    else
+      flash[:notice] = recording.check_recording
+      show = Show.find(params[:show_id])
+      redirect_to show_path(show)
     end
-
-    # if ride.check_ride == ""
-    #   ride.save
-    #   ride.take_ride
-    #   flash[:notice] = "Thanks for riding the #{ride.attraction.name}!"
-    # else
-    #   flash[:notice] = ride.check_ride
-    # end
-    # redirect_to user_path(current_user)
   end
 
   # Be able to update whether a recording is active or "deleted" (inactive)

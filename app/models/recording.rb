@@ -14,11 +14,8 @@ class Recording < ApplicationRecord
   # Main method for allowing recording to be saved and making user updates
   def allow_recording
     # Only update recorder if recording is allowed
-    if check_recording == ""
-      # puts "update recorder info"
-      update_user_hours
-      @recorder.save
-    end
+    update_user_hours
+    @recorder.save
     @notice
   end
 
@@ -27,11 +24,11 @@ class Recording < ApplicationRecord
     set_variables
     @notice = ""
     if !check_hours && !check_age
-      @notice = "You are not old enough and do not have enough hours to record '#{@rec_show.name}'."
+      @notice = "You are not old enough and do not have enough hours to record this show."
     elsif !check_hours
-      @notice = "You do not have enough hours to record '#{@rec_show.name}'."
+      @notice = "You do not have enough hours to record this show."
     elsif !check_age
-      @notice = "You are not old enough to record '#{@rec_show.name}'."
+      @notice = "You are not old enough to record this show."
     end
     @notice
   end
