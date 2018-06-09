@@ -16,8 +16,11 @@ class RecordingsController < ApplicationController
   def create
     puts "Recording Params = #{params}"
     recording = Recording.new(recordings_params(:name, :user_id, :show_id))
+
+
+    
     if recording.save
-      # Route to ???
+      redirect_to users_active_recordings(current_user)
     end
 
     # if ride.check_ride == ""
@@ -34,7 +37,7 @@ class RecordingsController < ApplicationController
   def update
     recording = Recording.find(params[:id])
     recording.update(recordings_params(:name, :active))
-    redirect_to post_path(@post)
+    redirect_to users_active_recordings(current_user)
   end
 
   private
