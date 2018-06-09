@@ -9,6 +9,8 @@ class Recording < ApplicationRecord
   # NOTE : Added name for user submittable attribute
 
 
+  # rec = Recording.new(user: User.first, show: Show.first)
+
   # Main method for allowing recording to be saved and making user updates
   def allow_recording
   end
@@ -26,33 +28,48 @@ class Recording < ApplicationRecord
     # puts "recorder = #{@recorder} || rec_show = #{@rec_show}"
   end
 
+  # NOTE : Replaced by adding validation to these attributes
+  # def check_user_variables
+  #   set_variables
+  #   puts "Recorder current hours = #{@recorder.current_recording_hours} || age = #{@recorder.age}"
+  #   if @recorder.current_recording_hours && @recorder.age
+  #     puts "Recorder has age and current_recording_hours"
+  #     return true
+  #   end
+  #   puts "Recording missing age or current_recording_hours"
+  #   false
+  # end
+
   # Check user has enough hours to record show
   def check_hours
     set_variables
-    puts "recorder has : #{@recorder.current_recording_hours} || show cost : #{@rec_show.req_recording_hours}"
+    # puts "recorder has : #{@recorder.current_recording_hours} || show cost : #{@rec_show.req_recording_hours}"
     if @recorder.current_recording_hours >= @rec_show.req_recording_hours
-      puts "Recorder has enough hours to record show"
+      # puts "Recorder has enough hours to record show"
       return true
     end
-    puts "Recorder needs more hours to record show"
+    # puts "Recorder needs more hours to record show"
     false
   end
 
   # Check user is old enough to record show
   def check_age
     set_variables
-    puts "recorder is : #{@recorder.age} || min age : #{@rec_show.req_age}"
+    # puts "recorder is : #{@recorder.age} || min age : #{@rec_show.req_age}"
     if @recorder.age >= @rec_show.req_age
-      puts "Recorder is old enough to record show"
+      # puts "Recorder is old enough to record show"
       return true
     end
-    puts "Recorder needs to be older to record show"
+    # puts "Recorder needs to be older to record show"
     false
   end
 
   # Method for updating user current hours
   def update_user_hours
     set_variables
+    # puts "UPDATE RECORDER HOURS => r hours = #{@recorder.current_recording_hours} || s hours = #{@rec_show.req_recording_hours}"
+    @recorder.current_recording_hours -= @rec_show.req_recording_hours
+    # puts "UPDATED RECORDER HOURS => r hours = #{@recorder.current_recording_hours}"
   end
 
 end
