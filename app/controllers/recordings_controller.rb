@@ -9,7 +9,7 @@ class RecordingsController < ApplicationController
   # Be able to create/set a recording
   def create
     puts "Recording Params = #{params}"
-    recording = Recording.new(:user_id, :attraction_id, :active)
+    recording = Recording.new(:name, :user_id, :attraction_id, :active)
     if recording.save
       # Route to ???
     end
