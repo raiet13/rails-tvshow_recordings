@@ -14,6 +14,7 @@ class RecordingsController < ApplicationController
 
   # Create new recording
   def new
+    puts "New Params = #{params}"
   end
 
   # Be able to create/set a recording
