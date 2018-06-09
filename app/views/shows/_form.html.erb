@@ -20,6 +20,10 @@
     <%= f.text_field :name %>
   </p>
   <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+  <p>
     <%= f.label :req_recording_hours, "How many hours will it take to record this show? (0-200)" %><br>
     <%= f.number_field :req_recording_hours %>
   </p>
