@@ -10,17 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_08_012332) do
+ActiveRecord::Schema.define(version: 2018_06_09_192716) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
     t.integer "show_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "role"
+    t.string "description"
     t.index ["show_id"], name: "index_characters_on_show_id"
   end
 
   create_table "recordings", force: :cascade do |t|
+    t.string "name"
     t.integer "user_id"
     t.integer "show_id"
     t.datetime "created_at", null: false
@@ -36,6 +39,7 @@ ActiveRecord::Schema.define(version: 2018_06_08_012332) do
     t.integer "req_age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
   end
 
   create_table "users", force: :cascade do |t|

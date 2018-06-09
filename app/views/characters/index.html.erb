@@ -1,7 +1,14 @@
 <h3>Show All Characters for Show <%= @show.name %></h3>
 
-<% @show.characters.each do |character| %>
-
-
-<!-- | <%= link_to "Edit", edit_show_character_path(character) %> | <%= link_to "Delete", "/shows/<%=@show.id%>/characters/<%=character.id%>" %> -->
-<% end %>
+<ul>
+  <% @show.characters.each do |character| %>
+    <li>Name : <%= character.name %></li>
+    <ol>
+      <li>Role : <%= character.role %></li>
+      <li>Description : <%= character.description %></li>
+      <li><%= link_to "Edit", edit_show_character_path(character) %> |
+        <%= link_to "Delete", "/shows/<%=@show.id%>/characters/<%=character.id%>", method: :delete, data: { confirm: "Are you sure?" } %>
+      </li>
+    </ol>
+  <% end %>
+</ul>
