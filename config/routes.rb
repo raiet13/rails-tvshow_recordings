@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :characters, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 
-  resources :recordings, only: [:index, :create, :update]
+  resources :recordings, only: [:index, :new, :create, :update]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
