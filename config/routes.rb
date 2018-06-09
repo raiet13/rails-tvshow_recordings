@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update, :destroy]
 
   resources :shows do
-    resources :characters, only: [:new, :create, :edit, :update, :destroy]
+    resources :characters, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 
   resources :recordings, only: [:index, :create, :update]
