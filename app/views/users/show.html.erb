@@ -14,4 +14,4 @@
 <%= link_to "See All Shows", shows_path %>
 <%= link_to "See Your Recordings", recordings_path(current_user) %>
 
-<%= link_to "Delete Your Account", 'users/<%=current_user.id%>/destroy' %>
+<%= link_to "Delete Your Account", 'users/<%=current_user.id%>', method: :delete, data: { confirm: "Are you sure?" } %>
