@@ -19,6 +19,17 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </p>
+  <p>
+    <%= f.label :role %><br>
+    <%= f.text_field :role %>
+  </p>
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.hidden_field(:show, :id, :value => @show.id) %>
+  </p>
 
   <%= f.submit %>
 <% end %>
