@@ -1,6 +1,11 @@
 class CharactersController < ApplicationController
   before_action :redirect_if_not_logged_in
 
+  # Show more detailed information for a show's characters
+  def index
+    @show = Show.find(params[:show_id])
+  end
+
   # New Character <<-- needs to inherit from show (should be show_id)
   def new
     puts "new params = #{params}"
@@ -68,7 +73,7 @@ class CharactersController < ApplicationController
   private
 
   def char_params
-    params.require(:character).permit(:name, :role, :description, :show_id])
+    params.require(:character).permit(:name, :role, :description, :show_id)
   end
 
 
