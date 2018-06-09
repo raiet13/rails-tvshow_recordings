@@ -13,14 +13,31 @@ class Recording < ApplicationRecord
 
   # Main method for allowing recording to be saved and making user updates
   def allow_recording
+    # Only update recorder if recording is allowed
+    if check_recording == ""
+      # puts "update recorder info"
+      update_user_hours
+      @recorder.save
+    end
+    @notice
   end
 
   # Main method for checking
   def check_recording
+    set_variables
+    @notice = ""
+    if !check_hours && !check_age
+      @notice = "You are not old enough and do not have enough hours to record '#{@rec_show.name}'."
+    elsif !check_hours
+      @notice = "You do not have enough hours to record '#{@rec_show.name}'."
+    elsif !check_age
+      @notice = "You are not old enough to record '#{@rec_show.name}'."
+    end
+    @notice
   end
 
   ## Methods for allowing recording or not ##
-  # private
+  private
 
   def set_variables
     @rec_show = self.show
@@ -42,7 +59,7 @@ class Recording < ApplicationRecord
 
   # Check user has enough hours to record show
   def check_hours
-    set_variables
+    # set_variables
     # puts "recorder has : #{@recorder.current_recording_hours} || show cost : #{@rec_show.req_recording_hours}"
     if @recorder.current_recording_hours >= @rec_show.req_recording_hours
       # puts "Recorder has enough hours to record show"
@@ -54,7 +71,7 @@ class Recording < ApplicationRecord
 
   # Check user is old enough to record show
   def check_age
-    set_variables
+    # set_variables
     # puts "recorder is : #{@recorder.age} || min age : #{@rec_show.req_age}"
     if @recorder.age >= @rec_show.req_age
       # puts "Recorder is old enough to record show"
@@ -66,7 +83,7 @@ class Recording < ApplicationRecord
 
   # Method for updating user current hours
   def update_user_hours
-    set_variables
+    # set_variables
     # puts "UPDATE RECORDER HOURS => r hours = #{@recorder.current_recording_hours} || s hours = #{@rec_show.req_recording_hours}"
     @recorder.current_recording_hours -= @rec_show.req_recording_hours
     # puts "UPDATED RECORDER HOURS => r hours = #{@recorder.current_recording_hours}"
