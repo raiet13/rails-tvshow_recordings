@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   before_action :redirect_if_not_logged_in
 
+  # Show only active recordings
+  def active_recordings
+    @recordings = current_user.active_recordings
+  end
+
   # Show All Users
   def index
     @users = User.all

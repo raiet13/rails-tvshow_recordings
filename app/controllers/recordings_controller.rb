@@ -3,13 +3,19 @@ class RecordingsController < ApplicationController
 
   # Show all recordings belonging to user (not show)
   def index
+    puts "index params = #{params}"
+    if params[:user_id]
+      @recordings = current_user.recordings
+    else
+      flash[:notice] = "You can only view recordings from your account."
+      redirect_to user_path(current_user)
+    end
   end
-
 
   # Be able to create/set a recording
   def create
     puts "Recording Params = #{params}"
-    recording = Recording.new(:name, :user_id, :attraction_id, :active)
+    recording = Recording.new(recordings_params(:name, :user_id, :show_id))
     if recording.save
       # Route to ???
     end
@@ -26,8 +32,8 @@ class RecordingsController < ApplicationController
 
   # Be able to update whether a recording is active or "deleted" (inactive)
   def update
-    @recording = Recording.find(params[:id])
-    @recording.update(recordings_params(:active))
+    recording = Recording.find(params[:id])
+    recording.update(recordings_params(:name, :active))
     redirect_to post_path(@post)
   end
 
