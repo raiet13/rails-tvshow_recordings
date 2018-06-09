@@ -1,7 +1,7 @@
 class Recording < ApplicationRecord
   belongs_to :user
   belongs_to :show
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   # validates_associated :show, :user
 
   # NOTE : Use created_at for when it was created and updated_at for when it was updated (if it was)
