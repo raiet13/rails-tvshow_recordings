@@ -1,24 +1,24 @@
+# rails-tvshow_recordings
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+Rails Project 1 -- inspired by DVR functionality
 
+### Description
 
-Welcome to your Rails project on Cloud9 IDE!
+NOTE : Describe how app works using bulletpoints
 
-To get started, just do the following:
+### Usage
 
-1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
-2. Preview your new app by clicking on the URL that appears in the Run panel below (https://HOSTNAME/).
+To use this app:
+- In your terminal, run "git clone git@github.com:raiet13/rails-tvshow_recordings.git".
+- After the application has been copied to your computer, navigate to the app by running "cd rails-tvshow_recordings".
+- Once you are in the application, run "bundle install".
+- After the bundling is complete, run "rails s".
+- Everything should be set up and ready for you to use!
 
-Happy coding!
-The Cloud9 IDE team
+### Contributing
 
+Bug reports and pull requests are welcome on GitHub at https://github.com/raiet13/rails-tvshow_recordings.
 
-## Support & Documentation
+### License
 
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
+This application is available as open source under the terms of the MIT License (included). License info can also be found at https://opensource.org/licenses/MIT.

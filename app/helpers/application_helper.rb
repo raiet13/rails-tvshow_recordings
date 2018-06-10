@@ -1,5 +1,6 @@
 module ApplicationHelper
-    # Check if User Logged In
+
+  # Check if User Logged In
   def logged_in?
     !!session[:user_id]
   end

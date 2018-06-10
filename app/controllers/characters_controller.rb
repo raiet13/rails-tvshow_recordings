@@ -13,7 +13,10 @@ class CharactersController < ApplicationController
       flash[:notice] = "You can only create characters for shows that exist."
       redirect_to shows_path
     else
+<<<<<<< HEAD
       flash[:notice] = ""
+=======
+>>>>>>> dde6dd82b12bc8a2bd552a4d5df5f787ef843837
       @character = Character.new(show_id: params[:show_id])
     end
   end
@@ -23,7 +26,10 @@ class CharactersController < ApplicationController
     puts "Create params = #{params}"
     character = Character.new(char_params)
     if character.save
+<<<<<<< HEAD
       flash[:notice] = ""
+=======
+>>>>>>> dde6dd82b12bc8a2bd552a4d5df5f787ef843837
       show = Show.find(params[:character][:show_id])
       redirect_to show_path(show)
     else
@@ -47,7 +53,10 @@ class CharactersController < ApplicationController
         end
       end
     else
+<<<<<<< HEAD
       flash[:notice] = ""
+=======
+>>>>>>> dde6dd82b12bc8a2bd552a4d5df5f787ef843837
       @character = Character.find(params[:id])
     end
   end
