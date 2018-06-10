@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   before_action :redirect_if_not_logged_in
-
-  # Show only active recordings
-  def active_recordings
-    @recordings = current_user.active_recordings
-  end
+  skip_before_action :redirect_if_not_logged_in, only: [:new, :create]
 
   # Show All Users
   def index
