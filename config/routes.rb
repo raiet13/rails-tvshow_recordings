@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   get '/signup' => 'users#new'
-  post '/signup' => 'users#create'
-  resources :users, only: [:index, :show, :edit, :update, :destroy]
+  resources :users, only: [:index, :create, :show, :edit, :update, :destroy]
 
   resources :shows do
     resources :characters, only: [:index, :new, :create, :edit, :update, :destroy]

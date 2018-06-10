@@ -9,8 +9,8 @@
   <% @show.characters.each do |character| %>
     <li><%= character.name %></li>
   <% end %>
-    <li><%= link_to "See all of show's character information", show_characters_path(@show) %></li>
 </ul>
+<p><%= link_to "See all of show's character information", show_characters_path(@show) %></p>
 
 <% if current_user.shows.include?(@show) %>
   You have already recorded this show. Would you like to <%= link_to "see all recordings", recordings_path(current_user) %>?<br>
@@ -18,5 +18,5 @@
   <%= link_to "Edit Show", edit_show_path(@show) %><br>
   <a href="shows/<%=@show.id%>/delete">Delete Show (link TBD)</a>
 <% else %>
-  <%= link_to "Would you like to record this show?", new_recording(@show) %>
+  <%= link_to "Would you like to record this show?", new_recording_path(@show) %>
 <% end %>

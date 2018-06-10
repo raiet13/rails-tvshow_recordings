@@ -6,7 +6,7 @@
     <ol>
       <li>Role : <%= character.role %></li>
       <li>Description : <%= character.description %></li>
-      <li><%= link_to "Edit", edit_show_character_path(character) %> |
+      <li><%= link_to "Edit", edit_show_character_path(@show, character) %> |
          <a href="shows/<%=@show.id%>/characters/<%=character.id%>>/delete">Delete (link TBD)</a>
        </li>
     </ol>

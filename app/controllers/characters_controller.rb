@@ -34,6 +34,7 @@ class CharactersController < ApplicationController
 
   # Edit character
   def edit
+    # puts "Char Edit Params = #{params}"
     if params[:show_id]
       show = Show.find_by(id: params[:show_id])
       if show.nil?
