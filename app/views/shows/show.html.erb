@@ -6,14 +6,14 @@
 <p>Age requirement to record show: <%= @show.req_age %></p>
 <p>Show has <%= @show.characters.count %> characters (by name):</p>
 <ul>
-    <li><%= link_to "See all character information", show_characters_path(@show) %></li>
   <% @show.characters.each do |character| %>
     <li><%= character.name %></li>
   <% end %>
+    <li><%= link_to "See all of show's character information", show_characters_path(@show) %></li>
 </ul>
 
 <% if current_user.shows.include?(@show) %>
-  <%= link_to "You have already recorded this show. See all recordings?", users_active_recordings_path(current_user) %>
+  You have already recorded this show. Would you like to <%= link_to "see all recordings", recordings_path(current_user) %>?<br>
   <%= link_to "Add Character to Show", new_show_character_path(@show) %><br>
   <%= link_to "Edit Show", edit_show_path(@show) %><br>
   <a href="shows/<%=@show.id%>/delete">Delete Show (link TBD)</a>
