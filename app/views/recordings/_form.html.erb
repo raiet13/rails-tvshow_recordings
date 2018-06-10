@@ -1,3 +1,25 @@
 
+<%= form_for recording do |f|%>
 
-<!-- <li><input type="checkbox" name="citizen_ids[]" id="<%=citizen.id%>" value="<%=citizen.id%>" <%='checked' if @kingdom.citizens.include?(citizen) %>><%=citizen.name%></input></li> -->
+  <% if recording.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(recording.errors.count, "error") %>
+        prohibited recording from being saved:
+      </h2>
+
+      <ul>
+      <% recording.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <%= f.submit %>
+<% end %>
