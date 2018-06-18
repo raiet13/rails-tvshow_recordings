@@ -15,7 +15,8 @@ class RecordingsController < ApplicationController
 
   # Create new recording
   def new
-    puts "New Params = #{params}"
+    # puts "New Params = #{params}"
+    @show = Show.find(params[:format])
     @recording= Recording.new
   end
 
@@ -46,7 +47,7 @@ class RecordingsController < ApplicationController
   private
 
   def recordings_params(*args)
-    params.permit(*args)
+    params.require(:recording).permit(*args)
   end
 
 end
