@@ -13,7 +13,8 @@ To use this app:
 - After the application has been copied to your computer, navigate to the app by running "cd rails-tvshow_recordings".
 - Once you are in the application, run "bundle install".
 - After the bundling is complete, run "rails s".
-- Everything should be set up and ready for you to use!
+- A url should become available. Click on the URL or launch in your brower.
+- The application home page should appear and the app ready for you to use!
 
 ### Contributing
 
