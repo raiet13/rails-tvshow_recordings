@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   # User Creation/Data Authentication
   def create
     user = User.new(user_params(:name, :username, :password, :age, :total_recording_hours))
+    puts "User = #{user}"
 		if user.save
 		  flash[:notice] = ""
       session[:user_id] = user.id
@@ -33,6 +34,7 @@ class UsersController < ApplicationController
 
   # User Profile
   def show
+    @show_user = User.find(params[:id])
   end
 
   # Edit User Info
