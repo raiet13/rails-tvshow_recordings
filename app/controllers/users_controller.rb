@@ -73,7 +73,7 @@ class UsersController < ApplicationController
     check_user = User.find(id)
     if check_user != current_user
       flash[:notice] = "You can only modify your own user information."
-      redirect_to user_path(user)
+      redirect_to user_path(check_user)
     end
   end
 
