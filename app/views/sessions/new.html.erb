@@ -1,13 +1,10 @@
-<% if flash[:notice] != "" %>
-  <%= link_to "Sign Up for an Account", signup_path %>
-<% end %>
 
 <h3>Sign In Page</h3>
 
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
 
   <label for="username">Enter Username:</label>
-    <%=text_field_tag "username" %>
+    <%= text_field_tag "username" %>
     <br><br>
 
   <label for="password">Enter password:</label>
