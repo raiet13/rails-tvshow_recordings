@@ -13,8 +13,11 @@
 
 <% if @show_user.id == current_user.id %>
     <%= link_to "See Your Recordings", recordings_path(@show_user) %><br>
-    <%= link_to "Edit Your Account", edit_user_path(@show_user) %><br>
-    <a href="users/<%=@show_user.id%>/delete">Delete Your Account (link TBD)</a>
+    <%= link_to "Edit Your Account", edit_user_path(@show_user) %><br><br>
+    <%= form_tag user_path(@show_user.id), method: "delete" do %>
+      <%= submit_tag "Delete Your Account" %>
+    <% end %>
+
 <% else %>
     <%= link_to "See User's Recordings", recordings_path(@show_user) %><br>
 <% end %>
