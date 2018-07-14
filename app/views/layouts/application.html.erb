@@ -7,13 +7,6 @@
 
   <body>
 
-    <!-- NOTE : Added for convenience -->
-    <div class="container">
-      <% if flash[:notice] %>
-        <div class="notice"><%= flash[:notice] %></div>
-      <% end %>
-    </div>
-
     <!-- NOTE : Nav for convenience -->
     <div class="container">
       <%= link_to "Home", root_path %>
@@ -27,7 +20,16 @@
 
     <!-- content -->
     <div class="container"  role="main">
+      
+      <!-- NOTE : Added for convenience -->
+      <div class="container">
+        <% if flash[:notice] %>
+          <div class="notice"><%= flash[:notice] %></div>
+        <% end %>
+      </div>
+
       <%= yield %>
+      
     </div>
     
   </body>
