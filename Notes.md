@@ -2,9 +2,7 @@
 
 Things Needing to be Fixed
 - User edit path
-- Recordings not updating user data?
 - Recording active toggle in newline instead of in-line
-- Possibly revisit having "current recording hours" to be "total minus current active recording hours" using method rather than a num
 
 
 - - - - - 
