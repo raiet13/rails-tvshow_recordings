@@ -28,7 +28,6 @@ class RecordingsController < ApplicationController
     if recording.check_recording == ""
       flash[:notice] = ""
       recording.save
-      recording.allow_recording
       redirect_to recordings_path(current_user)
     else
       flash[:notice] = recording.check_recording
