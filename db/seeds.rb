@@ -12,9 +12,9 @@ bracken = User.create(name: 'Bracken', username: 'bracken', password: 'techie', 
 swaine = User.create(name: 'Swaine', username: 'swaine', password: 'thief', age: 34, total_recording_hours: 20)
 tani = User.create(name: 'Tani', username: 'tani', password: 'sky', age: 13, total_recording_hours: 15)
 
-OUAT = Show.create(name: 'Once Upon a Time', req_recording_hours: 30, req_age: 18)
-Supergirl = Show.create(name: 'Supergirl', req_recording_hours: 15, req_age: 15)
-TaJ = Show.create(name: 'Tom and Jerry', req_recording_hours: 5, req_age: 10)
+OUAT = Show.create(name: 'Once Upon a Time', req_recording_hours: 30, req_age: 18, description: 'Show about Fairy Tale characters in a fictional town.')
+Supergirl = Show.create(name: 'Supergirl', req_recording_hours: 15, req_age: 15, description: 'The story of Kara Danvers as Supergirl.')
+TaJ = Show.create(name: 'Tom and Jerry', req_recording_hours: 5, req_age: 10, description: 'The adventures of an animated cat and mouse.')
 
 emma = Character.create(name: 'Emma', show: OUAT, role:'hero', description:'The Savior')
 regina = Character.create(name: 'Regina', show: OUAT, role:'anti-hero', description:'The Evil Queen')
