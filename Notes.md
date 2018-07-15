@@ -21,6 +21,7 @@ https://github.com/raiet13/rails-amusement-park-v-000
 - - - - - 
 
 Third Party Sign In
+- https://console.developers.google.com/apis/credentials?project=learn-rails-user-recordings&folder
 
 - https://learn.co/tracks/full-stack-web-development-v5/rails/authentication/omniauth
 - https://github.com/zquestz/omniauth-google-oauth2

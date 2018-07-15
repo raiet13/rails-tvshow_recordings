@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180715023006) do
+ActiveRecord::Schema.define(version: 20180715220345) do
 
   create_table "characters", force: :cascade do |t|
     t.string   "name"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 20180715023006) do
     t.integer  "total_recording_hours"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.string   "image"
+    t.string   "uid"
   end
 
 end

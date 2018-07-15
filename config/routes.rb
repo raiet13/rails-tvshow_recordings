@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+  
+  # Third Party Sign In
+  get '/auth/google_oauth2/callback' => 'sessions#googlelogin'
 
   get '/signup' => 'users#new'
   resources :users, only: [:index, :create, :show, :edit, :update, :destroy]

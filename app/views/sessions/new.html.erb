@@ -7,10 +7,12 @@
     <%= text_field_tag "username" %>
     <br><br>
 
-  <label for="password">Enter password:</label>
+  <label for="password">Enter Password:</label>
     <%= password_field_tag "password" %>
     <br><br>
 
-  <%= submit_tag 'Sign In' %>
+  <%= submit_tag 'Sign In Using Local Credentials' %>
+
+  <p><%= link_to "Log in with Google", '/auth/google_oauth2' %></p>
 
 <% end %>

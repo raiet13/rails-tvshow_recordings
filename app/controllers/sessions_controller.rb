@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
       redirect_to user_path(user)
     else
       flash[:notice] = "Log in unsuccessful, either your username or password was not found. Please try again or sign up for an account."
-      render :new # NOTE WIP NOT WORKING -- because not calling errors and/or not working with model... || NOTE : So that user doesn't have to re-enter info from scratch if they don't want
+      render :new
     end
   end
 
@@ -29,5 +29,26 @@ class SessionsController < ApplicationController
     end
     redirect_to root_path
   end
+
+  # THIRD PARTY SIGN IN
+  def googlelogin
+    puts "Params = #{auth['info']['email']}"
+    check_user = User.find_by(username: auth['info']['email'])
+    
+    if check_user
+      @login_user = check_user
+      session[:user_id] = @login_user.id
+      redirect_to user_path(@login_user)
+    else
+      flash[:notice] = "Log in unsuccessful. Please try again or sign up for an account."
+      render :new
+    end
+
+  end
+
+  def auth
+    request.env['omniauth.auth']
+  end
+
 
 end
