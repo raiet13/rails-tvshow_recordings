@@ -16,7 +16,10 @@
   You have already recorded this show. Would you like to <%= link_to "see all recordings", recordings_path(current_user) %>?<br>
   <%= link_to "Add Character to Show", new_show_character_path(@show) %><br>
   <%= link_to "Edit Show", edit_show_path(@show) %><br>
-  <a href="shows/<%=@show.id%>/delete">Delete Show (link TBD)</a>
+
 <% else %>
   <%= link_to "Would you like to record this show?", new_recording_path(@show) %>
 <% end %>
+
+
+<p>Show Page last updated on: <%= @show.updated_at %></p>
