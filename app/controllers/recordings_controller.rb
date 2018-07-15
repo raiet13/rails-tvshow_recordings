@@ -26,12 +26,18 @@ class RecordingsController < ApplicationController
     recording = Recording.new(recordings_params(:name, :user_id, :show_id))
 
     if recording.check_recording == ""
-      flash[:notice] = ""
-      recording.save
-      redirect_to recordings_path(current_user)
+      if recording.save
+        flash[:notice] = ""
+        redirect_to recordings_path(current_user)
+      else
+        flash[:notice] = "Something went wrong during recording creation, please try again."
+        @show = recording.show
+        @recording = recording
+  			render :new
+			end
     else
       flash[:notice] = recording.check_recording
-      show = Show.find(params[:show_id])
+      show = Show.find(params[:recording][:show_id])
       redirect_to show_path(show)
     end
   end
