@@ -43,6 +43,14 @@ class User < ApplicationRecord
     end
   end
 
+  def get_current_recording_hours
+    current_hours = 0
+    self.active_recordings.each do |rec|
+      current_hours += rec.show.req_recording_hours
+    end
+    current_hours
+  end
+
   # NOTE : Add checks for recordings (show is age appropriate / has enough recording hours)
   # NOTE : Need to confirm that age and recording hours is not null (report that recordings require reported age/recording hours to be valid)
     # t.integer :age

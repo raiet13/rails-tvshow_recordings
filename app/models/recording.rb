@@ -94,6 +94,12 @@ class Recording < ApplicationRecord
     false
   end
 
+
+
+
+
+
+
   # Method for updating user current -- subtract current user hours
   def update_user_hours_active
     # set_variables
@@ -104,10 +110,10 @@ class Recording < ApplicationRecord
 
   # Method for updating user current -- return current user hours
   def update_user_hours_inactive
-    set_variables
-    puts "UPDATE RECORDER HOURS => r hours = #{@recorder.current_recording_hours} || s hours = #{@rec_show.req_recording_hours}"
+    # set_variables
+    # puts "UPDATE RECORDER HOURS => r hours = #{@recorder.current_recording_hours} || s hours = #{@rec_show.req_recording_hours}"
     @recorder.current_recording_hours += @rec_show.req_recording_hours
-    puts "UPDATED RECORDER HOURS => r hours = #{@recorder.current_recording_hours}"
+    # puts "UPDATED RECORDER HOURS => r hours = #{@recorder.current_recording_hours}"
   end
 
 end
