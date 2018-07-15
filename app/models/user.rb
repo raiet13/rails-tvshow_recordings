@@ -37,14 +37,8 @@ class User < ApplicationRecord
   end
   
   def user_has_show(show)
-    # puts "user shows = #{self.shows}"
-    # self.shows.each do |show|
-    #   puts "has show : #{show.name}"
-    # end
-    
     check_show = self.shows.include?(show)
     if check_show
-      # puts "return show : #{show.name}"
      return show
     end
   end
