@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   # Update User Info
   def update
     user_check(params[:id])
-    user = User.update(user_params(:name, :username, :age))
+    user = User.update(user_params(:name, :username, :password, :age))
 		if user.save
       flash[:notice] = ""
       redirect_to user_path(user)
