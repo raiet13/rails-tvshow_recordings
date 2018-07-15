@@ -28,6 +28,7 @@ class UsersController < ApplicationController
       redirect_to user_path(user)
 		else
       flash[:notice] = "Something went wrong during sign up, please try again."
+      @new_user = user
 			render :new
 		end
   end
