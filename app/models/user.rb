@@ -8,14 +8,6 @@ class User < ApplicationRecord
   has_many :recordings
   has_many :shows, through: :recordings
 
-  # User's favorite genre as denoted by the number of shows recorded
-  # NOTE : Used "all recordings shows as it was the simplest association to grab"
-  def fav_genre
-    # NOTE : DID NOT ADD GENRES YET
-    # r.shows.genres
-    "WIP - no genres yet"
-  end
-
   # User's current number of active recordings
   def active_recordings
     self.recordings.where(active: true)
