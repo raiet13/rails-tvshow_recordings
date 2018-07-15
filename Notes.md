@@ -3,9 +3,13 @@
 Things Needing to be Fixed
 - User edit path
 - Recording active toggle in newline instead of in-line
-- Character new/edit path
+- Character new/edit path <<-- **CURRENT FOCUS
 - CSS/Javascript requires (using the asset pipeline or not -- http://guides.rubyonrails.org/asset_pipeline.html)
-- 
+    -> Specifically for the flash notice (to make it more obvious)
+
+Next Steps
+- Class level method/view
+- Third Party Log In
 
 - - - - - 
 
