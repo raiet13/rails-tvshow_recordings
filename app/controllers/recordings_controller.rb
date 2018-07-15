@@ -1,17 +1,20 @@
 class RecordingsController < ApplicationController
   before_action :redirect_if_not_logged_in
 
-  # Show all recordings belonging to user (not show)
+  # Show all existing recordings belonging to user or all period
   def index
     puts "index params = #{params}"
-    if params[:user_id]
-      flash[:notice] = ""
-      @recordings = current_user.recordings
+    if params[:format]
+      @recordings_user = User.find(params[:format])
+      @recordings = @recordings_user.all_recordings
     else
-      flash[:notice] = "You can only view recordings from your account."
-      redirect_to user_path(current_user)
+      @recordings = Recording.all
     end
   end
+
+
+
+
 
   # Create new recording
   def new
