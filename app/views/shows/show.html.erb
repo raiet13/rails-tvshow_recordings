@@ -1,4 +1,7 @@
-<h3>Show Page</h3>
+
+<p><%= link_to "Return to Shows List", shows_path %></p>
+
+<h3>Show Page for '<%= @show.name %>'</h3>
 
 <p>Name: <%= @show.name %></p>
 <p>Description: <%= @show.description %></p>
@@ -10,10 +13,11 @@
     <li><%= character.name %></li>
   <% end %>
 </ul>
+
 <p><%= link_to "See all of show's character information", show_characters_path(@show) %></p>
 
 <% if current_user.shows.include?(@show) %>
-  You have already recorded this show. Would you like to <%= link_to "see your recordings?", recordings_path(current_user) %>?<br>
+  You have already recorded this show. Would you like to <%= link_to "see your recordings", recordings_path(current_user) %>?<br><br>
   <%= link_to "Add Character to Show", new_show_character_path(@show) %><br>
   <%= link_to "Edit Show", edit_show_path(@show) %><br>
 
