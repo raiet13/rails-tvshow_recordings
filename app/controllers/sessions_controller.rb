@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
 
   # Log In Authentication
   def create
-    # puts "Sign In Params = #{params}"
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
       flash[:notice] = ""
@@ -32,9 +31,7 @@ class SessionsController < ApplicationController
 
   # THIRD PARTY SIGN IN
   def googlelogin
-    puts "Params = #{auth['info']['email']}"
     check_user = User.find_by(username: auth['info']['email'])
-    
     if check_user
       @login_user = check_user
       session[:user_id] = @login_user.id
@@ -43,8 +40,9 @@ class SessionsController < ApplicationController
       flash[:notice] = "Log in unsuccessful. Please try again or sign up for an account."
       render :new
     end
-
   end
+
+  private
 
   def auth
     request.env['omniauth.auth']
