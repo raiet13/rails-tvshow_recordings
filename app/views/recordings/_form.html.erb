@@ -21,8 +21,13 @@
     <%= f.text_field :name %>
   </p>
   
+  <p>
+    <%= f.label :active %><br>
+    <%= f.check_box :active %>
+  </p>
+  
   <%= f.hidden_field :user_id, :value => current_user.id %>
-  <%= f.hidden_field :show_id, :value => @show.id %>
+  <%= f.hidden_field :show_id, :value => show.id %>
 
   <%= f.submit %>
 <% end %>

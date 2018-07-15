@@ -11,7 +11,7 @@
     <ul>
         <% @recordings.each do |recording| %>
           <li>
-              Recording = <%= link_to recording.name, recording_path(recording) %>
+              Recording = <%= link_to recording.name, edit_recording_path(recording) %>
               || Show = <%= link_to recording.show.name, show_path(recording.show) %>
               <% if !@recordings_user %>
                   || User = <%= recording.user.name %>

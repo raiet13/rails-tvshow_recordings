@@ -36,6 +36,10 @@ class RecordingsController < ApplicationController
       redirect_to show_path(show)
     end
   end
+  
+  def edit
+    @recording = Recording.find(params[:id])
+  end
 
   # Be able to update whether a recording is active or "deleted" (inactive)
   def update
