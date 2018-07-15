@@ -34,6 +34,8 @@ class ShowsController < ApplicationController
   # Show Profile
   def show
     @show = Show.find(params[:id])
+    @show.show_page_views += 1
+    @show.save
   end
 
   # Edit Show if User has recorded it
