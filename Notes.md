@@ -3,7 +3,7 @@
 Things Needing to be Fixed
 - User edit path
 - Recording active toggle in newline instead of in-line
-
+- Character new/edit path
 
 - - - - - 
 

@@ -28,7 +28,7 @@
     <%= f.text_field :description %>
   </p>
   <p>
-    <%= f.hidden_field :show_id %>
+    <%= f.hidden_field :show_id, :value => show.id %>
   </p>
 
   <%= f.submit %>

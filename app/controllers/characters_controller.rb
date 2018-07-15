@@ -14,7 +14,8 @@ class CharactersController < ApplicationController
       redirect_to shows_path
     else
       flash[:notice] = ""
-      @character = Character.new(show_id: params[:show_id])
+      @show = Show.find(params[:show_id])
+      @character = Character.new
     end
   end
 
