@@ -10,6 +10,7 @@
       <li>Role : <%= character.role %></li>
       <li>Description : <%= character.description %></li>
       <li><%= link_to "Edit", edit_show_character_path(@show, character) %></li>
+      <li><%= render partial: "delete", locals: {character: character} %></li>
     </ul>
   <% end %>
 </ul>

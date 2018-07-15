@@ -74,8 +74,8 @@ class CharactersController < ApplicationController
   # Delete character (if say it was created for the wrong show)
   def destroy
     character = Character.find(params[:id])
+    show = character.show
     character.destroy
-    show = Show.find(params[:show_id])
     redirect_to show_path(show)
   end
 
