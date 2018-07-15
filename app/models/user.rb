@@ -35,6 +35,19 @@ class User < ApplicationRecord
   def num_recordings
     self.all_recordings.count
   end
+  
+  def user_has_show(show)
+    # puts "user shows = #{self.shows}"
+    # self.shows.each do |show|
+    #   puts "has show : #{show.name}"
+    # end
+    
+    check_show = self.shows.include?(show)
+    if check_show
+      # puts "return show : #{show.name}"
+     return show
+    end
+  end
 
   # NOTE : Add checks for recordings (show is age appropriate / has enough recording hours)
   # NOTE : Need to confirm that age and recording hours is not null (report that recordings require reported age/recording hours to be valid)
