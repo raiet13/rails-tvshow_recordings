@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180715220345) do
+ActiveRecord::Schema.define(version: 20180715234302) do
 
   create_table "characters", force: :cascade do |t|
     t.string   "name"
     t.integer  "show_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "role"
     t.string   "description"
+    t.integer  "char_page_views"
   end
 
   create_table "recordings", force: :cascade do |t|
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 20180715220345) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "description"
+    t.integer  "show_page_views"
   end
 
   create_table "users", force: :cascade do |t|

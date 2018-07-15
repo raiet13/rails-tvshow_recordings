@@ -7,6 +7,8 @@ Things Needing to be Fixed
 
 Next Steps
 - Class level method/view
+    -> Most Viewed Character
+    -> Most Viewed Character on User's Most Viewed Show (most viewed show and of the shows that user has recorded)
 
 - - - - - 
 
