@@ -17,11 +17,11 @@
 
   <p>
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :value => default_data["name"] %>
   </p>
   <p>
     <%= f.label :username %><br>
-    <%= f.text_field :username %>
+    <%= f.text_field :username, :value => default_data["username"] %>
   </p>
   <p>
     <%= f.label :password %><br>
@@ -34,6 +34,11 @@
   <p>
     <%= f.label :total_recording_hours, "How many hours can you record? (0-200)" %><br>
     <%= f.number_field :total_recording_hours %>
+  </p>
+
+  <p>
+    <%= f.hidden_field :uid, :value => default_data["uid"] %>
+    <%= f.hidden_field :image, :value => default_data["image"] %>
   </p>
 
   <%= f.submit %>

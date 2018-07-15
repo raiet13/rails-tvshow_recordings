@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  # Sign Up Page
+  # Sign Up Page <<-- Updated for both types of sign up
   def new
     if logged_in?
       flash[:notice] = "You are already signed in. If this is not your account, please 'Log Out'."
@@ -15,13 +15,25 @@ class UsersController < ApplicationController
     else
       flash[:notice] = ""
       @new_user = User.new
+      if session[:googlelogin] == true
+        # puts "update new user"
+        #   puts "Session Google User"
+        #   session[:googleuser].each do |i,v|
+        #     puts "#{i}, #{v}"
+        #   end
+        @google_user_info_hash = session[:googleuser]
+        session.delete(:googleuser)
+        session.delete(:googlelogin)
+        # puts "Google User Hash = "
+        # @google_user_info_hash.each {|key, value| puts "#{key} is #{value}" }
+      end
     end
   end
-
+  
   # User Creation/Data Authentication
   def create
     user = User.new(user_params(:name, :username, :password, :age, :total_recording_hours))
-    puts "User = #{user}"
+    # puts "User = #{user}"
 		if user.save
 		  flash[:notice] = ""
       session[:user_id] = user.id
@@ -78,6 +90,11 @@ class UsersController < ApplicationController
       flash[:notice] = "You can only modify your own user information."
       redirect_to user_path(check_user)
     end
+  end
+
+  # Google OmniAuth
+  def auth
+    request.env['omniauth.auth']
   end
 
 end
