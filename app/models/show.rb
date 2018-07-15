@@ -22,5 +22,9 @@ class Show < ApplicationRecord
   def num_recordings
     self.recordings.count
   end
+  
+  def recording_name
+    self.name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+  end
 
 end

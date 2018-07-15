@@ -16,7 +16,8 @@ class RecordingsController < ApplicationController
   def new
     # puts "New Params = #{params}"
     @show = Show.find(params[:format])
-    @recording= Recording.new
+    @recording = Recording.new
+    @recording.name = current_user.name + "_" + @show.recording_name
   end
 
   # Be able to create/set a recording
