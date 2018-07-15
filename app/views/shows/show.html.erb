@@ -13,7 +13,7 @@
 <p><%= link_to "See all of show's character information", show_characters_path(@show) %></p>
 
 <% if current_user.shows.include?(@show) %>
-  You have already recorded this show. Would you like to <%= link_to "see all recordings", recordings_path(current_user) %>?<br>
+  You have already recorded this show. Would you like to <%= link_to "see your recordings?", recordings_path(current_user) %>?<br>
   <%= link_to "Add Character to Show", new_show_character_path(@show) %><br>
   <%= link_to "Edit Show", edit_show_path(@show) %><br>
 
