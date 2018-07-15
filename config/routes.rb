@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :create, :show, :edit, :update, :destroy]
 
   resources :shows do
-    resources :characters, only: [:index, :new, :edit]
+    resources :characters, only: [:index, :new, :edit, :destroy]
   end
   
-  resources :characters, only: [:create, :update, :destroy]
+  resources :characters, only: [:create, :update]
 
   resources :recordings, only: [:index, :new, :create, :edit, :update]
 
