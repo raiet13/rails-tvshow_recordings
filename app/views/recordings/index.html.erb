@@ -10,17 +10,20 @@
 <% else %>
     <ul>
         <% @recordings.each do |recording| %>
-          <li>
-              Recording = <%= link_to recording.name, edit_recording_path(recording) %>
-              || Show = <%= link_to recording.show.name, show_path(recording.show) %>
-              <% if !@recordings_user %>
-                  || User = <%= recording.user.name %>
-              <% end %>
-                  || Active? = <%= recording.active %>
-              <% if @recordings_user %>
-                  || <%= render partial: "toggle", locals: {recording: recording} %>
-              <% end %>
+        <p>
+          <li>Recording = <%= link_to recording.name, edit_recording_path(recording) %>
+          <ul>
+            <li>Show = <%= link_to recording.show.name, show_path(recording.show) %></li>
+            <% if !@recordings_user %>
+                <li>User = <%= recording.user.name %></li>
+                <% end %>
+            <li>Active? = <%= recording.active %></li>
+            <% if @recordings_user %>
+                <li><%= render partial: "toggle", locals: {recording: recording} %></li>
+                <% end %>
+            </ul>
           </li>
+        </p>
         <% end %>
     </ul>
 <% end %>
