@@ -17,6 +17,9 @@
                   || User = <%= recording.user.name %>
               <% end %>
                   || Active? = <%= recording.active %>
+              <% if @recordings_user %>
+                  || <%= render partial: "toggle", locals: {recording: recording} %>
+              <% end %>
           </li>
         <% end %>
     </ul>

@@ -33,6 +33,14 @@ class Recording < ApplicationRecord
     @notice
   end
 
+  # Toggle active -- https://stackoverflow.com/questions/40620649/how-to-toggle-a-boolean-attribute-in-a-controller-action
+  def active_toggle!
+    update active: !active
+  end
+
+
+
+
   ## Methods for allowing recording or not ##
   private
 
