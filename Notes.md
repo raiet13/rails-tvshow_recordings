@@ -4,6 +4,8 @@ Things Needing to be Fixed
 - User edit path
 - Recording active toggle in newline instead of in-line
 - Character new/edit path
+- CSS/Javascript requires (using the asset pipeline or not -- http://guides.rubyonrails.org/asset_pipeline.html)
+- 
 
 - - - - - 
 
