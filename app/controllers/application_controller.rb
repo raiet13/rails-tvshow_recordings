@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   def home
     flash[:notice] = ""
+    session[:googlelogin] = false
   end
 
 end
