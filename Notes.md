@@ -3,7 +3,6 @@
 Things Needing to be Fixed
 - User edit path
 - Recording active toggle in newline instead of in-line
-- Character new/edit path <<-- **CURRENT FOCUS
 - CSS/Javascript requires (using the asset pipeline or not -- http://guides.rubyonrails.org/asset_pipeline.html)
     -> Specifically for the flash notice (to make it more obvious)
 
@@ -18,6 +17,17 @@ Referenced Labs/Projects
 https://github.com/raiet13/imdbfilmdistribution-cli-app
 https://github.com/raiet13/sinatra-nnktoo
 https://github.com/raiet13/rails-amusement-park-v-000
+
+- - - - - 
+
+Third Party Sign In
+
+- https://learn.co/tracks/full-stack-web-development-v5/rails/authentication/omniauth
+- https://github.com/zquestz/omniauth-google-oauth2
+- https://github.com/omniauth/omniauth
+- https://richonrails.com/articles/google-authentication-in-ruby-on-rails
+
+- https://www.youtube.com/embed/wsbfUc-CPbg?rel=0&showinfo=0
 
 
 - - - - - 

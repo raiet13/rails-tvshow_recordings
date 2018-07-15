@@ -13,10 +13,7 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*
-<<<<<<< HEAD
-!/log/.keep
 /tmp
-=======
 /tmp/*
 !/log/.keep
 !/tmp/.keep
@@ -32,4 +29,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
->>>>>>> dde6dd82b12bc8a2bd552a4d5df5f787ef843837
+
+# Third Party Log In
+.env
