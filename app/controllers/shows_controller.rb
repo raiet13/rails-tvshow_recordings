@@ -43,12 +43,12 @@ class ShowsController < ApplicationController
 
   def update
     show = Show.find(params[:id])
-    show.update(show_params)
-    if show.save
+    if show.update(show_params)
       flash[:notice] = ""
       redirect_to show_path(show)
     else
       flash[:notice] = "Something went wrong when you edited the show, please try again."
+      @show = show
       render :edit
     end
   end
