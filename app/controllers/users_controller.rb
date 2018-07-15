@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   
   # User Creation/Data Authentication
   def create
-    user = User.new(user_params(:name, :username, :password, :age, :total_recording_hours))
+    user = User.new(user_params(:name, :username, :password, :age, :total_recording_hours, :uid, :image))
     # puts "User = #{user}"
 		if user.save
 		  flash[:notice] = ""

@@ -2,4 +2,5 @@
 
 <h4>Users can only edit their name, username, password, or age.</h4>
 
-<%= render partial: "form", locals: {user: @edit_user} %>
+<% @user_hash = {"name" => @edit_user.name, "username" => @edit_user.username, "uid" => @edit_user.uid, "image" => @edit_user.image} %>
+<%= render partial: "form", locals: {user: @edit_user, default_data: @user_hash} %>
