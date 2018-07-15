@@ -68,8 +68,9 @@ class ShowsController < ApplicationController
 
   # NOTE : Adding check that user "is allowed" to modify the show <<-- current implementation allows for inclusion of past recordings
   def check_user_recorded_show
-    show = params[:id]
-    if !current_user.shows.include?(show)
+    show = Show.find(params[:id])
+    # puts "check user recorded params = #{params}"
+    if !current_user.user_has_show(show)
       flash[:notice] = "You can only modify information for shows that you have recorded."
       redirect_to show_path(show)
     end
