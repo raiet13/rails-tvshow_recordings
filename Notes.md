@@ -3,6 +3,7 @@
 Things Needing to be Fixed
 - User edit path
 - Recordings not updating user data?
+- Recording active toggle in newline instead of in-line
 - 
 
 
