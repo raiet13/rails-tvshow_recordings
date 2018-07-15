@@ -5,8 +5,6 @@ class User < ApplicationRecord
   validates :total_recording_hours, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 200 }
   validates :age, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 200 }
 
-  before_create :set_current_recording_hours_default
-
   has_many :recordings
   has_many :shows, through: :recordings
 
@@ -43,26 +41,12 @@ class User < ApplicationRecord
     end
   end
 
-  def get_current_recording_hours
+  def current_recording_hours
     current_hours = 0
     self.active_recordings.each do |rec|
       current_hours += rec.show.req_recording_hours
     end
-    current_hours
-  end
-
-  # NOTE : Add checks for recordings (show is age appropriate / has enough recording hours)
-  # NOTE : Need to confirm that age and recording hours is not null (report that recordings require reported age/recording hours to be valid)
-    # t.integer :age
-    # t.integer :recording_hours
-
-
-
-  private
-
-  # Set the current recordings to the total upon creation <<-- current implementation rather than multiple methods given scale of app
-  def set_current_recording_hours_default
-    self.current_recording_hours = self.total_recording_hours
+    self.total_recording_hours - current_hours
   end
 
 end
