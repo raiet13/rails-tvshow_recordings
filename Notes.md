@@ -28,4 +28,4 @@ Functionality Notes (logical flow for later perusal)
     -> Doing this would require that shows track their creator
     -> Functionally, it would be worthwhile to then have other users be able to request updates/changes due to not being able to edit directly
         -> Also, would recommend that shows in shows index be listed Alphabetically and dupes flagged
-- 
+- Characters should only be modifiable if user has recorded show AND if user created them

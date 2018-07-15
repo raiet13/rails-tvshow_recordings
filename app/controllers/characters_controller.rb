@@ -6,7 +6,7 @@ class CharactersController < ApplicationController
     @show = Show.find(params[:show_id])
   end
 
-  # New Character <<-- needs to inherit from show (should be show_id)
+  # New Character
   def new
     puts "new params = #{params}"
     if params[:show_id] && !Show.exists?(params[:show_id])
@@ -23,12 +23,14 @@ class CharactersController < ApplicationController
   def create
     puts "Create params = #{params}"
     character = Character.new(char_params)
+    show = Show.find(params[:character][:show_id])
     if character.save
       flash[:notice] = ""
-      show = Show.find(params[:character][:show_id])
       redirect_to show_path(show)
     else
       flash[:notice] = "Something went wrong during character creation, please try again."
+      @character = character
+      @show = show
       render :new
     end
   end
@@ -37,15 +39,15 @@ class CharactersController < ApplicationController
   def edit
     puts "Char Edit Params = #{params}"
     if params[:show_id]
-      show = Show.find_by(id: params[:show_id])
-      if show.nil?
+      @show = Show.find_by(id: params[:show_id])
+      if @show.nil?
         flash[:notice] = "You can only create characters for shows that exist."
         redirect_to shows_path
       else
-        @character = show.characters.find_by(id: params[:id])
+        @character = @show.characters.find_by(id: params[:id])
         if @character.nil?
           flash[:notice] = "You can only edit characters that exist for this show."
-          redirect_to show_path(show)
+          redirect_to show_path(@show)
         end
       end
     else
@@ -57,13 +59,14 @@ class CharactersController < ApplicationController
   # Update character name
   def update
     character = Character.find(params[:id])
-    character.update(char_params)
-    if character.save
+    show = Show.find(params[:character][:show_id])
+    if character.update(char_params)
       flash[:notice] = ""
-      show = Show.find(params[:character][:show_id])
       redirect_to show_path(show)
     else
       flash[:notice] = "Something went wrong during character update, please try again."
+      @character = character
+      @show = show
       render :edit
     end
   end
