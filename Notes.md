@@ -2,6 +2,7 @@
 
 Things Needing to be Fixed
 - User edit path
+- Recordings not updating user data?
 - 
 
 

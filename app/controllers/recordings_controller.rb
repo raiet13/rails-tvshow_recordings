@@ -29,7 +29,7 @@ class RecordingsController < ApplicationController
       flash[:notice] = ""
       recording.save
       recording.allow_recording
-      redirect_to users_active_recordings(current_user)
+      redirect_to recordings_path(current_user)
     else
       flash[:notice] = recording.check_recording
       show = Show.find(params[:show_id])
