@@ -8,7 +8,7 @@
 
 roland = User.create(name: 'Roland', username: 'roland', password: 'whale', age: 45, total_recording_hours: 100)
 evan = User.create(name: 'Evan', username: 'evan', password: 'evermore', age: 12, total_recording_hours: 5)
-bracken = User.create(name: 'Bracken', username: 'bracken', password: 'techie', age: 23, total_recording_hours: 5)
+bracken = User.create(name: 'Bracken', username: 'bracken', password: 'techie', age: 23, total_recording_hours: 50)
 swaine = User.create(name: 'Swaine', username: 'swaine', password: 'thief', age: 34, total_recording_hours: 20)
 tani = User.create(name: 'Tani', username: 'tani', password: 'sky', age: 13, total_recording_hours: 15)
 
