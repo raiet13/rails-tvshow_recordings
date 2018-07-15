@@ -8,7 +8,6 @@ class CharactersController < ApplicationController
 
   # New Character
   def new
-    puts "new params = #{params}"
     if params[:show_id] && !Show.exists?(params[:show_id])
       flash[:notice] = "You can only create characters for shows that exist."
       redirect_to shows_path
@@ -21,7 +20,6 @@ class CharactersController < ApplicationController
 
   # Create new character
   def create
-    puts "Create params = #{params}"
     character = Character.new(char_params)
     show = Show.find(params[:character][:show_id])
     if character.save
@@ -37,7 +35,6 @@ class CharactersController < ApplicationController
 
   # Edit character
   def edit
-    puts "Char Edit Params = #{params}"
     if params[:show_id]
       @show = Show.find_by(id: params[:show_id])
       if @show.nil?

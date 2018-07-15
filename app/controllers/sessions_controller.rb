@@ -31,9 +31,6 @@ class SessionsController < ApplicationController
 
   # Third Party Sign In/Sign Up <-- Note : Doesn't seem like they can be separated
   def googleauth
-    # puts "AUTH PARAMS = #{auth}"
-    # puts "AUTH PARAMS INFO = #{auth['info']}"
-    # puts "AUTH PARAMS UID = #{auth['uid']}"
     check_user = User.find_by(username: auth['info']['email'])
     if check_user
       @login_user = check_user

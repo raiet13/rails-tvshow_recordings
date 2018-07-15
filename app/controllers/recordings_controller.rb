@@ -3,7 +3,6 @@ class RecordingsController < ApplicationController
 
   # Show all existing recordings belonging to user or all period
   def index
-    puts "index params = #{params}"
     if params[:format]
       @recordings_user = User.find(params[:format])
       @recordings = @recordings_user.all_recordings
@@ -14,7 +13,6 @@ class RecordingsController < ApplicationController
 
   # Create new recording
   def new
-    # puts "New Params = #{params}"
     @show = Show.find(params[:format])
     @recording = Recording.new
     @recording.name = current_user.name + "_" + @show.recording_name
@@ -22,7 +20,6 @@ class RecordingsController < ApplicationController
 
   # Be able to create/set a recording
   def create
-    puts "Recording Params = #{params}"
     recording = Recording.new(recordings_params(:name, :user_id, :show_id))
 
     if recording.check_recording == ""
