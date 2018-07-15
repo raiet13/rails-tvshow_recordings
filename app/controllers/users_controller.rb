@@ -41,17 +41,19 @@ class UsersController < ApplicationController
   # Edit User Info
   def edit
     user_check(params[:id])
+    @edit_user = current_user
   end
 
   # Update User Info
   def update
     user_check(params[:id])
-    user = User.update(user_params(:name, :username, :password, :age))
-		if user.save
+    user = User.find(params[:id])
+		if user.update(user_params(:name, :username, :password, :age))
       flash[:notice] = ""
       redirect_to user_path(user)
 		else
       flash[:notice] = "Something went wrong during edit, please try again."
+      @edit_user = user
 			render :edit
 		end
   end
