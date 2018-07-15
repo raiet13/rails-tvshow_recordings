@@ -1,3 +1,5 @@
 <h3>Edit Show</h3>
 
+<p><%= link_to "Return to Show Page", show_path(@show) %></p>
+
 <%= render partial: "form", locals: {show: @show} %>
