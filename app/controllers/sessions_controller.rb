@@ -29,16 +29,24 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  # THIRD PARTY SIGN IN
-  def googlelogin
+  # Third Party Sign In/Sign Up <-- Note : Doesn't seem like they can be separated
+  def googleauth
+    # puts "AUTH PARAMS = #{auth}"
+    # puts "AUTH PARAMS INFO = #{auth['info']}"
+    # puts "AUTH PARAMS UID = #{auth['uid']}"
     check_user = User.find_by(username: auth['info']['email'])
     if check_user
       @login_user = check_user
       session[:user_id] = @login_user.id
       redirect_to user_path(@login_user)
     else
-      flash[:notice] = "Log in unsuccessful. Please try again or sign up for an account."
-      render :new
+      session[:googlelogin] = true
+      session[:googleuser] = {}
+      session[:googleuser][:username] = auth['info']['email']
+      session[:googleuser][:uid] = auth['uid']
+      session[:googleuser][:name] = auth['info']['name']
+      session[:googleuser][:image] = auth['info']['image']
+      redirect_to signup_path
     end
   end
 

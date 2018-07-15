@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   
   # Third Party Sign In
-  get '/auth/google_oauth2/callback' => 'sessions#googlelogin'
+  get '/auth/google_oauth2/callback' => 'sessions#googleauth'
 
   get '/signup' => 'users#new'
   resources :users, only: [:index, :create, :show, :edit, :update, :destroy]
