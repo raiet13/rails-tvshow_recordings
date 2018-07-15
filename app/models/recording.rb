@@ -14,7 +14,7 @@ class Recording < ApplicationRecord
   # Main method for allowing recording to be saved and making user updates
   def allow_recording
     # Only update recorder if recording is allowed
-    update_user_hours
+    update_user_hours_active
     @recorder.save
     @notice
   end
@@ -35,7 +35,15 @@ class Recording < ApplicationRecord
 
   # Toggle active -- https://stackoverflow.com/questions/40620649/how-to-toggle-a-boolean-attribute-in-a-controller-action
   def active_toggle!
+    set_variables
     update active: !active
+    if self.active
+      puts "subtract user hours"
+      update_user_hours_active
+    else
+      puts "return user hours"
+      update_user_hours_inactive
+    end
   end
 
 
@@ -86,12 +94,20 @@ class Recording < ApplicationRecord
     false
   end
 
-  # Method for updating user current hours
-  def update_user_hours
+  # Method for updating user current -- subtract current user hours
+  def update_user_hours_active
     # set_variables
     # puts "UPDATE RECORDER HOURS => r hours = #{@recorder.current_recording_hours} || s hours = #{@rec_show.req_recording_hours}"
     @recorder.current_recording_hours -= @rec_show.req_recording_hours
     # puts "UPDATED RECORDER HOURS => r hours = #{@recorder.current_recording_hours}"
+  end
+
+  # Method for updating user current -- return current user hours
+  def update_user_hours_inactive
+    set_variables
+    puts "UPDATE RECORDER HOURS => r hours = #{@recorder.current_recording_hours} || s hours = #{@rec_show.req_recording_hours}"
+    @recorder.current_recording_hours += @rec_show.req_recording_hours
+    puts "UPDATED RECORDER HOURS => r hours = #{@recorder.current_recording_hours}"
   end
 
 end
