@@ -15,17 +15,11 @@ class UsersController < ApplicationController
     else
       flash[:notice] = ""
       @new_user = User.new
+      @google_user_info_hash = {"name" => "", "username" => "", "uid" => "", "image" => ""}
       if session[:googlelogin] == true
-        # puts "update new user"
-        #   puts "Session Google User"
-        #   session[:googleuser].each do |i,v|
-        #     puts "#{i}, #{v}"
-        #   end
         @google_user_info_hash = session[:googleuser]
         session.delete(:googleuser)
         session.delete(:googlelogin)
-        # puts "Google User Hash = "
-        # @google_user_info_hash.each {|key, value| puts "#{key} is #{value}" }
       end
     end
   end
