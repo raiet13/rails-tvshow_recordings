@@ -26,5 +26,10 @@ class Show < ApplicationRecord
   def recording_name
     self.name.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
   end
+  
+  # Most viewed show for Class Scope Method
+  def self.most_viewed
+    self.select(:name, :show_page_views).order(show_page_views: :asc)
+  end
 
 end
