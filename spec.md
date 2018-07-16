@@ -7,7 +7,7 @@ Specs:
 - [x] Include at least one has_many through relationship (x has_many y through z e.g. Recipe has_many Items through Ingredients) <<-- User has_many Shows through Recordings (and vice versa)
 - [x] The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity) <<-- Recordings have names
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item) <<-- every model has basic validations needed for associations or spec requirements
-- [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+- [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes) <<-- Most viewed Show and Character
 - [x] Include signup (how e.g. Devise) <<-- OmniAuth/Google + Local
 - [x] Include login (how e.g. Devise) <<-- OmniAuth/Google + Local
 - [x] Include logout (how e.g. Devise)

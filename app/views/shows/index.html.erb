@@ -1,7 +1,5 @@
 <h3>All Shows</h3>
 
-<%= link_to "See Most Watched Characters By Show", most_viewed_characters_by_show_path %>
-
 <ul>
   <% @shows.each do |show| %>
     <li><%= link_to show.name, show_path(show) %></li>
