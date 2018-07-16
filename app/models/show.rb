@@ -29,7 +29,11 @@ class Show < ApplicationRecord
   
   # Most viewed show for Class Scope Method
   def self.most_viewed
-    self.select(:name, :show_page_views).order(show_page_views: :asc)
+    self.select(:name, :show_page_views).order(show_page_views: :desc).first
+  end
+
+  def self.by_views
+    self.select(:name, :show_page_views).order(show_page_views: :desc)
   end
 
 end
