@@ -20,12 +20,13 @@ class ShowsController < ApplicationController
       flash[:notice] = "The show you attempted to create already exists."
       redirect_to show_path(show)
     else
-      new_show = Show.create(show_params)
+      new_show = Show.new(show_params)
       if new_show.save
         flash[:notice] = ""
         redirect_to show_path(new_show)
       else
         flash[:notice] = "Something went wrong during show creation, please try again."
+        @show = new_show
   			render :new
       end
     end
