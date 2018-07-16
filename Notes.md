@@ -1,15 +1,7 @@
 - - - - - 
 
-Things Needing to be Fixed
-- Recording active toggle in newline instead of in-line
-- CSS/Javascript requires (using the asset pipeline or not -- http://guides.rubyonrails.org/asset_pipeline.html)
-    -> Specifically for the flash notice (to make it more obvious)
-
 Next Steps
-- Class level method/view
-    -> Most Viewed Show
-    -> User's Most Viewed Show (most viewed show and of the shows that user has recorded)
-    -> Note : Changing from character because characters don't really have enough info to warrant their own show page... Included the info/updates for that anyway (just in case)
+- 
 
 - - - - - 
 
@@ -41,3 +33,6 @@ Functionality Notes (logical flow for later perusal)
     -> Functionally, it would be worthwhile to then have other users be able to request updates/changes due to not being able to edit directly
         -> Also, would recommend that shows in shows index be listed Alphabetically and dupes flagged
 - Characters should only be modifiable if user has recorded show AND if user created them
+- Recording active toggle in newline instead of in-line <<-- minor thing
+- CSS/Javascript requires (using the asset pipeline or not -- http://guides.rubyonrails.org/asset_pipeline.html)
+    -> Specifically for the flash notice (to make it more obvious)
