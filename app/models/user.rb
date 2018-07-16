@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   has_secure_password
   validates_presence_of :name
-  validates_presence_of :password, :on => :create
+  validates_presence_of :password, confirmation: true, :on => :create
+  validates :password_confirmation, presence: true, :on => :create
+
   validates :username, presence: true, uniqueness: true
   validates :total_recording_hours, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 200 }
   validates :age, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 200 }
