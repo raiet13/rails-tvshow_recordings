@@ -4,7 +4,13 @@ Rails Project 1 -- inspired by DVR functionality
 
 ### Description
 
-NOTE : Describe how app works using bulletpoints
+In this app users...
+- have a limited number of recording hours that they can use to "record" shows
+- can "record" shows
+- can view and modify shows (that they are recording)
+- can view and modify characters that belong to shows
+- can decide whether "recordings" are active or inactive
+- can see what show/character pages other users are visiting the most
 
 ### Usage
 
