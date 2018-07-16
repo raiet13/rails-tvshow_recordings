@@ -61,6 +61,12 @@ class ShowsController < ApplicationController
     show.destroy
     redirect_to shows_path
   end
+  
+  # Class Scope Method
+  def most_viewed
+  end
+  
+  
 
   private
 

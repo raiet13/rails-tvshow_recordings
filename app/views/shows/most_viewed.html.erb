@@ -1,0 +1,20 @@
+<h3>Most Viewed Character Per Show Ordered by Most Watched Show</h3>
+
+<h4>Most Viewed Character in Most Watched Show</h4>
+<div>
+    <p>Most Watched Show is <%= Show.most_viewed.name %></p>
+    <p>Most Watched Character is <%= Character.most_viewed_by_show(Show.most_viewed) %></p>
+</div>
+
+
+
+<% Show.by_views.each do |show| %>
+<div>
+    <p><%= link_to show.name, show_path(show) %></p>
+    <% char = Character.most_viewed_by_show(show) %>
+    <ul>
+        <li><%= show.name %> has been viewed <%= show.show_page_views %> times</li>
+        <li>Most viewed character in show is <%= link_to char.name, character_path(char) %> with <%= char.char_page_views %> views</li>
+    </ul>
+</div>
+<% end %>

@@ -41,5 +41,5 @@ class User < ApplicationRecord
     end
     self.total_recording_hours - current_hours
   end
-
+  
 end

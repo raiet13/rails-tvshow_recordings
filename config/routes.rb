@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   resources :users, only: [:index, :create, :show, :edit, :update, :destroy]
 
+  get '/most_viewed_characters_by_show' => 'shows#most_viewed'
   resources :shows do
     resources :characters, only: [:index, :new, :edit]
   end
