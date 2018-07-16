@@ -33,6 +33,16 @@ class User < ApplicationRecord
      return show
     end
   end
+  
+  def user_recording_show(show)
+    current = self.active_recordings.to_a
+    check = current.collect do |recording|
+      Show.find(recording.show.id)
+    end
+    if check.include?(show)
+      return show
+    end
+  end
 
   def current_recording_hours
     current_hours = 0

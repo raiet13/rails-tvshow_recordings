@@ -7,10 +7,12 @@
       <li>Has <%= show.characters.count %> characters.</li>
       <li>Age requirement is <%= show.req_age %>.</li>
       <li>Takes <%= show.req_recording_hours %> recording hours.</li>
-      <li>Show is currently 
-        <% if !current_user.user_has_show(show) %> not <% end %>
-        recorded by user.
+      <li>You are currently 
+        <% if !current_user.user_recording_show(show) %> not <% end %>
+        recording this show.
       </li>
     </ol>
   <% end %>
 </ul>
+
+<%= link_to "Create New Show", new_show_path %>
