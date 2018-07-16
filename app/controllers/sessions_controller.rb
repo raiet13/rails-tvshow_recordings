@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       flash[:notice] = ""
       session[:user_id] = user.id
-      redirect_to user_path(user)
+      redirect_to root_path
     else
       flash[:notice] = "Log in unsuccessful, either your username or password was not found. Please try again or sign up for an account."
       render :new
@@ -35,7 +35,7 @@ class SessionsController < ApplicationController
     if check_user
       @login_user = check_user
       session[:user_id] = @login_user.id
-      redirect_to user_path(@login_user)
+      redirect_to root_path
     else
       session[:googlelogin] = true
       session[:googleuser] = {}

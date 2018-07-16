@@ -45,9 +45,19 @@ class RecordingsController < ApplicationController
 
   # Be able to update whether a recording is active or "deleted" (inactive)
   def update
+    puts "Record update params = #{params}"
     recording = Recording.find(params[:id])
-    recording.active_toggle!
-    redirect_to recordings_path(current_user)
+    if params.include?(:recording)
+      if recording.update(recordings_params(:name, :active))
+        redirect_to recordings_path(current_user)
+      else
+        @recording = recording
+        render :edit
+      end
+    else
+      recording.active_toggle!
+      redirect_to recordings_path(current_user)
+    end
   end
 
   private
