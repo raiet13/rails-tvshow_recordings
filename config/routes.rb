@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :characters, only: [:index, :new, :edit]
   end
   
-  resources :characters, only: [:create, :update, :destroy]
+  resources :characters, only: [:show, :create, :update, :destroy]
 
   resources :recordings, only: [:index, :new, :create, :edit, :update]
 

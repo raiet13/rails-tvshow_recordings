@@ -16,11 +16,11 @@ ActiveRecord::Schema.define(version: 20180715234302) do
   create_table "characters", force: :cascade do |t|
     t.string   "name"
     t.integer  "show_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "role"
     t.string   "description"
-    t.integer  "char_page_views"
+    t.integer  "char_page_views", default: 0
   end
 
   create_table "recordings", force: :cascade do |t|
@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(version: 20180715234302) do
     t.string   "name"
     t.integer  "req_recording_hours"
     t.integer  "req_age"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "description"
-    t.integer  "show_page_views"
+    t.integer  "show_page_views",     default: 0
   end
 
   create_table "users", force: :cascade do |t|

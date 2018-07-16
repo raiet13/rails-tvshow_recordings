@@ -1,5 +1,7 @@
 class CharactersController < ApplicationController
   before_action :redirect_if_not_logged_in
+  before_action :update_char_views
+  skip_before_action :update_char_views, only: [:new, :create, :index, :update, :destroy]
 
   # Show more detailed information for a show's characters
   def index
@@ -32,13 +34,18 @@ class CharactersController < ApplicationController
       render :new
     end
   end
+  
+  # Show Character
+  def show
+    @character = Character.find(params[:id])
+  end
 
   # Edit character
   def edit
     if params[:show_id]
       @show = Show.find_by(id: params[:show_id])
       if @show.nil?
-        flash[:notice] = "You can only create characters for shows that exist."
+        flash[:notice] = "You can only edit characters for shows that exist."
         redirect_to shows_path
       else
         @character = @show.characters.find_by(id: params[:id])
@@ -81,6 +88,11 @@ class CharactersController < ApplicationController
   def char_params
     params.require(:character).permit(:name, :role, :description, :show_id)
   end
-
+  
+  def update_char_views
+    char = Character.find(params[:id])
+    char.char_page_views += 1
+    char.save
+  end
 
 end
