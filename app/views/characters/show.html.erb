@@ -10,4 +10,5 @@
 <p><%= link_to "Edit", edit_show_character_path(@character.show, @character) %></p>
 <p><%= render partial: "delete", locals: {character: @character} %></p>
 
+<p>Character last updated on: <%= @character.updated_at %></p>
 <p>Character has been viewed <%= @character.char_page_views %> times.</p>
