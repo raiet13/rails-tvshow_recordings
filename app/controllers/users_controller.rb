@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def new
     if logged_in?
       flash[:notice] = "You are already signed in. If this is not your account, please 'Log Out'."
-      redirect_to user_path(current_user)
+      redirect_to root_path
     else
       flash[:notice] = ""
       @new_user = User.new
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 		if user.save
 		  flash[:notice] = ""
       session[:user_id] = user.id
-      redirect_to root
+      redirect_to root_path
 		else
       flash[:notice] = "Something went wrong during sign up, please try again."
       @new_user = user

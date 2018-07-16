@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   # Log In Page
   def new
     if logged_in?
-      redirect_to user_path(current_user)
+      redirect_to root_path
     end
     @users = User.all
   end
