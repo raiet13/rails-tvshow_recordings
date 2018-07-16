@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 		if user.save
 		  flash[:notice] = ""
       session[:user_id] = user.id
-      redirect_to user_path(user)
+      redirect_to root
 		else
       flash[:notice] = "Something went wrong during sign up, please try again."
       @new_user = user
