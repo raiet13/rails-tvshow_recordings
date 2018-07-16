@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   
   # User Creation/Data Authentication
   def create
-    user = User.new(user_params(:name, :username, :password, :age, :total_recording_hours, :uid, :image))
+    user = User.new(user_params(:name, :username, :password, :password_confirmation, :age, :total_recording_hours, :uid, :image))
 		if user.save
 		  flash[:notice] = ""
       session[:user_id] = user.id
@@ -34,6 +34,7 @@ class UsersController < ApplicationController
 		else
       flash[:notice] = "Something went wrong during sign up, please try again."
       @new_user = user
+      @google_user_info_hash = {"name" => user.name, "username" => user.username, "uid" => user.uid, "image" => user.image}
 			render :new
 		end
   end
@@ -53,7 +54,7 @@ class UsersController < ApplicationController
   def update
     user_check(params[:id])
     user = User.find(params[:id])
-		if user.update(user_params(:name, :username, :password, :age))
+		if user.update(user_params(:name, :username, :password, :password_confirmation, :age))
       flash[:notice] = ""
       redirect_to user_path(user)
 		else
