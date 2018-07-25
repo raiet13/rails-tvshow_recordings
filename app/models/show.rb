@@ -6,6 +6,8 @@ class Show < ApplicationRecord
   has_many :users, through: :recordings
   has_many :characters
 
+  scope :viewed_shows,   -> { where("show_page_views > 0") }
+
   def num_recordings
     self.recordings.count
   end

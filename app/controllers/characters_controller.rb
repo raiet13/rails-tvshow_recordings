@@ -66,7 +66,7 @@ class CharactersController < ApplicationController
     show = Show.find(params[:character][:show_id])
     if character.update(char_params)
       flash[:notice] = ""
-      redirect_to show_path(show)
+      redirect_to character_path(character)
     else
       flash[:notice] = "Something went wrong during character update, please try again."
       @character = character

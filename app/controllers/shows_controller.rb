@@ -1,7 +1,8 @@
 class ShowsController < ApplicationController
   before_action :redirect_if_not_logged_in
   before_action :check_user_recorded_show
-  skip_before_action :check_user_recorded_show, only: [:index, :new, :create, :show, :most_viewed]
+  skip_before_action :check_user_recorded_show, only: [:index, :new, :create, :show, :most_viewed, :viewed_shows
+  ]
 
   # Show all shows <<-- all shows recorded by user are checked (via view)
   def index
@@ -67,7 +68,9 @@ class ShowsController < ApplicationController
   def most_viewed
   end
   
-  
+  def viewed_shows
+    @shows = Show.viewed_shows
+  end
 
   private
 

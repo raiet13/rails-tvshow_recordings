@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :create, :show, :edit, :update, :destroy]
 
   get '/most_viewed_characters_by_show' => 'shows#most_viewed'
+  get 'shows/viewed_shows' => 'shows#viewed_shows'
   resources :shows do
     resources :characters, only: [:index, :new, :edit]
   end

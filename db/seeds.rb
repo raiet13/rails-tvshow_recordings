@@ -6,11 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-roland = User.create(name: 'Roland', username: 'roland', password: 'whale', age: 45, total_recording_hours: 100)
-evan = User.create(name: 'Evan', username: 'evan', password: 'evermore', age: 12, total_recording_hours: 5)
-bracken = User.create(name: 'Bracken', username: 'bracken', password: 'techie', age: 23, total_recording_hours: 50)
-swaine = User.create(name: 'Swaine', username: 'swaine', password: 'thief', age: 34, total_recording_hours: 20)
-tani = User.create(name: 'Tani', username: 'tani', password: 'sky', age: 13, total_recording_hours: 15)
+roland = User.create(name: 'Roland', username: 'roland', password: 'whale', password_confirmation: 'whale', age: 45, total_recording_hours: 100)
+evan = User.create(name: 'Evan', username: 'evan', password: 'evermore', password_confirmation: 'evermore', age: 12, total_recording_hours: 5)
+bracken = User.create(name: 'Bracken', username: 'bracken', password: 'techie', password_confirmation: 'techie', age: 23, total_recording_hours: 50)
+swaine = User.create(name: 'Swaine', username: 'swaine', password: 'thief', password_confirmation: 'thief', age: 34, total_recording_hours: 20)
+tani = User.create(name: 'Tani', username: 'tani', password: 'sky', password_confirmation: 'sky', age: 13, total_recording_hours: 15)
 
 OUAT = Show.create(name: 'Once Upon a Time', req_recording_hours: 30, req_age: 18, description: 'Show about Fairy Tale characters in a fictional town.')
 Supergirl = Show.create(name: 'Supergirl', req_recording_hours: 15, req_age: 15, description: 'The story of Kara Danvers as Supergirl.')
